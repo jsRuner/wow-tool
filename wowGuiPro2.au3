@@ -119,12 +119,13 @@ EndFunc
  ; ----- GUIs
 Func MainGUI()
   Global $listview
-  $listGUI = GUICreate("魔兽世界多开器", 400, 400, 100, 200, -1)
+  $listGUI = GUICreate("魔兽世界助手", 400, 400, 100, 200, -1)
   GUISetOnEvent($GUI_EVENT_CLOSE, "On_Close_Main")
-  $listview = GUICtrlCreateListView("魔兽窗口列表", 10, 10, 400, 150)
+  $listview = GUICtrlCreateListView("魔兽游戏窗口列表", 10, 10, 400, 150)
   _GUICtrlListView_SetColumnWidth($listview, 0, $LVSCW_AUTOSIZE_USEHEADER )
 
-	Local $aList = WinList("魔兽世界")
+	Local $aList = WinList("[TITLE:魔兽世界; CLASS:GxWindowClass;]")
+	;GxWindowClass
 	;Local $aList = WinList("[CLASS:GxWindowClassD3d]", "")
 
     ; Loop through the array displaying only visable windows with a title.
@@ -143,7 +144,7 @@ Func MainGUI()
 
 
 
-  Global $BtnAdd = GUICtrlCreateButton("启动", 10, 165, 80, 30)
+  Global $BtnAdd = GUICtrlCreateButton("启动多开", 10, 165, 80, 30)
   GUICtrlSetOnEvent($BtnAdd, "Addi")
 
   Global $BtnGua = GUICtrlCreateButton("启动挂机", 10, 165+30+10, 80, 30)
@@ -156,7 +157,7 @@ GUICtrlSetOnEvent($BtnGua, "Guai")
   $mainLabel = GUICtrlCreateLabel( "主窗体:"& $mainTitle, 190, 165+10, 300, 30)
 
 
-   $myedit=GUICtrlCreateEdit("本软件可以实现多开魔兽世界,实现同时练级功能。"& @CRLF & "具体文档: http://1t.click/Tpr "& @CRLF & "作者: 五区-帕奇维克-我是悠悠 ", 10,165+40+10+40+10,380,380)
+   $myedit=GUICtrlCreateEdit("本软件可以实现多开魔兽世界,实现同时练级功能。"& @CRLF & "具体文档: https://www.yuque.com/u293649/hpg76f "& @CRLF & "作者: 五区-帕奇维克-我是悠悠 ", 10,165+40+10+40+10,380,380)
 
 
   GUISetState()
